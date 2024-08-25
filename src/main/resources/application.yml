@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: ${SPRING_APP_NAME:spring-security}
+  security:
+    user:
+      name: ${SECURITY_USERNAME:eazybank}
+      password: ${SECURITY_PASSWORD:12345}
