@@ -2,7 +2,7 @@ spring:
   application:
     name: ${SPRING_APP_NAME:spring-security}
   datasource:
-    url: jdbc:mysql://${DATABASE_HOST:localhost}:${DATABASE_PORT:3307}:${DATABASE_NAME:eazybank}
+    url: jdbc:mysql://${DATABASE_HOST:localhost}:${DATABASE_PORT:3307}/${DATABASE_NAME:eazybank}
     username: ${DATABASE_USERNAME:root}
     password: ${DATABASE_PASSWORD:root}
   #In a production environment, Set this JPA_SHOW_SQL and HIBERNATE_FORMAT_SQL values to false
