@@ -24,7 +24,7 @@ public class UserController {
 
     private final ObjectMapper mapper;
 
-    @PostMapping
+    @PostMapping("/register")
     public ResponseEntity<String> registerUser(@RequestBody Customer customer) {
         try {
             customer.setPassword(passwordEncoder.encode(customer.getPassword()));

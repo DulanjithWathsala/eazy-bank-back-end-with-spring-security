@@ -1,6 +1,8 @@
 spring:
   application:
     name: ${SPRING_APP_NAME:spring-security}
+  profiles:
+    active: ${ACTIVE_PROFILE:default}
   datasource:
     url: jdbc:mysql://${DATABASE_HOST:localhost}:${DATABASE_PORT:3307}/${DATABASE_NAME:eazybank}
     username: ${DATABASE_USERNAME:root}
