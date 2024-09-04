@@ -14,6 +14,11 @@ spring:
       hibernate:
         format_sql: ${HIBERNATE_FORMAT_SQL:true}
 
+server:
+  servlet:
+    session:
+      timeout: ${SESSION_TIMEOUT:20m}
+
 logging:
   level:
     org:
