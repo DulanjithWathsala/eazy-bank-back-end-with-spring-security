@@ -1,5 +1,6 @@
 package edu.eazybank.spring_security.config;
 
+import edu.eazybank.spring_security.config.exception.handler.CustomBasicAuthenticationEntryPoint;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
@@ -24,7 +25,8 @@ public class ProjectSecurityConfig {
                 .requestMatchers("/account", "/balance", "/cards", "/loans").authenticated()
                 .requestMatchers("/contact", "/notices", "/user/register", "/error").permitAll());
         http.formLogin(withDefaults());
-        http.httpBasic(withDefaults());
+        http.httpBasic(httpBasicConfig ->
+                httpBasicConfig.authenticationEntryPoint(new CustomBasicAuthenticationEntryPoint()));
         return http.build();
     }
 
