@@ -1,5 +1,7 @@
 package edu.eazybank.spring_security.config;
 
+import edu.eazybank.spring_security.config.exception.handler.CustomAccessDeniedHandler;
+import edu.eazybank.spring_security.config.exception.handler.CustomBasicAuthenticationEntryPoint;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
@@ -24,7 +26,10 @@ public class ProjectSecurityProdConfig {
                 .requestMatchers("/account", "/balance", "/cards", "/loans").authenticated()
                 .requestMatchers("/contact", "/notices", "/user/register", "/error").permitAll());
         http.formLogin(withDefaults());
-        http.httpBasic(withDefaults());
+        http.httpBasic(httpBasicConfig ->
+                httpBasicConfig.authenticationEntryPoint(new CustomBasicAuthenticationEntryPoint()));
+        http.exceptionHandling(exceptionHandlingConfig ->
+                exceptionHandlingConfig.accessDeniedHandler(new CustomAccessDeniedHandler()));
         return http.build();
     }
 

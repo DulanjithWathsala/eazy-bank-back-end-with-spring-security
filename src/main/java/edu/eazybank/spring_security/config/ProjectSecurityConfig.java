@@ -1,5 +1,6 @@
 package edu.eazybank.spring_security.config;
 
+import edu.eazybank.spring_security.config.exception.handler.CustomAccessDeniedHandler;
 import edu.eazybank.spring_security.config.exception.handler.CustomBasicAuthenticationEntryPoint;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -27,6 +28,8 @@ public class ProjectSecurityConfig {
         http.formLogin(withDefaults());
         http.httpBasic(httpBasicConfig ->
                 httpBasicConfig.authenticationEntryPoint(new CustomBasicAuthenticationEntryPoint()));
+        http.exceptionHandling(exceptionHandlingConfig ->
+                exceptionHandlingConfig.accessDeniedHandler(new CustomAccessDeniedHandler()));
         return http.build();
     }
 
