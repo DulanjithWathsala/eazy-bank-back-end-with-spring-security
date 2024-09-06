@@ -17,7 +17,6 @@ import org.springframework.stereotype.Component;
 public class EazyBankUserNamePasswordAuthenticationProvider implements AuthenticationProvider {
 
     private final UserDetailsService userDetailsService;
-    private final PasswordEncoder passwordEncoder;
 
     @Override
     public Authentication authenticate(Authentication authentication) throws AuthenticationException {
