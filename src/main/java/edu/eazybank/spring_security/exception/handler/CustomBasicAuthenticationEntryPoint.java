@@ -1,4 +1,4 @@
-package edu.eazybank.spring_security.config.exception.handler;
+package edu.eazybank.spring_security.exception.handler;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
