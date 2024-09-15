@@ -3,9 +3,12 @@ package edu.eazybank.spring_security.entity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.sql.Date;
+import java.util.Set;
 
 @Entity
 @Data
@@ -34,4 +37,7 @@ public class CustomerEntity {
     @Column(name = "create_dt")
     @JsonIgnore
     private Date createDt;
+
+    @OneToMany(mappedBy = "customer", fetch = FetchType.EAGER)
+    private Set<AuthorityEntity> authorities;
 }
