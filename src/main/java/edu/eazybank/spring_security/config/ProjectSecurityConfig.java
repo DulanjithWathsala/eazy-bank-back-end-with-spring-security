@@ -58,12 +58,7 @@ public class ProjectSecurityConfig {
     public PasswordEncoder passwordEncoder() {
         return PasswordEncoderFactories.createDelegatingPasswordEncoder();
     }
-
-    /**
-     * From Spring Security 6.3 version
-     *
-     * @return
-     */
+    
     @Bean
     public CompromisedPasswordChecker compromisedPasswordChecker() {
         return new HaveIBeenPwnedRestApiPasswordChecker();
